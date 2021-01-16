@@ -16,6 +16,8 @@ public class BinaryNode {
     public String toString() {
         return "BinaryNode{" +
                 "value=" + value +
+                ", left=" + left +
+                ", right=" + right +
                 '}';
     }
 }

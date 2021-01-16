@@ -8,27 +8,46 @@ public class BinarySearchTree {
 
 
     public void insertRecu(Integer value) {
-        if (this.root == null) {
-            this.root = new BinaryNode(value);
-        } else {
-            recInsert(this.root, value);
+      BinaryNode current = this.root;
+
+      this.root = recInsert(current, value);
+    }
+
+    public BinaryNode recInsert(BinaryNode node, Integer value) {
+        if (node == null) {
+            return new BinaryNode(value);
         }
+        if (value < node.value) {
+            //left
+            node.left = recInsert(node.left, value);
+        }
+
+        if (value > node.value) {
+            node.right = recInsert(node.right, value);
+
+        }
+
+        return node;
     }
 
-    public void recInsert(BinaryNode node, Integer value) {
-
-        BinaryNode current = node;
-        if (current != null) {
-            if (value > node.value) {
-                recInsert(current.right, value);
-            } else {
-                recInsert(current.left, value);
-            }
-        } else
-            current = new BinaryNode(value);
-
+    public BinaryNode findNodeRecu(Integer value) {
+       return findNodeByRecursionMethod(this.root, value);
     }
+    
 
+    public BinaryNode findNodeByRecursionMethod(BinaryNode node, Integer value) {
+        if (node == null) {
+            return null;
+        }
+
+        if (value > node.value) 
+            return findNodeByRecursionMethod(node.right, value);
+
+        if (value < node.value)
+            return findNodeByRecursionMethod(node.left, value);
+
+        return null;
+    }
     public void insert(int value) {
         BinaryNode newNode = new BinaryNode(value);
 
@@ -141,11 +160,12 @@ public class BinarySearchTree {
 
     public static void main(String[] args) {
         BinarySearchTree b = new BinarySearchTree();
-       b.insert(10);
-       b.insert(22);
-       b.insert(8);
-       b.insert(9);
-       b.insert(9);
+       b.insertRecu(10);
+       b.insertRecu(22);
+       b.insertRecu(8);
+       b.insertRecu(9);
+       b.insertRecu(9);
+        System.out.println(b.findNodeRecu(9));
         System.out.println(b.root);
         System.out.println(b.findNode(23));
         System.out.println(b.breadthFirstSearch());
