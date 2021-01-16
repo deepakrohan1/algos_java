@@ -62,7 +62,9 @@ public class SingleLinkedLinkList {
          * 2. Create a tempVariable to hold the new Node
          * 3. Assign the newNode. next = head
          * 4. head = newNode
+         * 5. if no head is present assign this to the be the head
          * 5. length ++
+         *
          */
     }
 

@@ -6,6 +6,29 @@ import java.util.Stack;
 public class BinarySearchTree {
     BinaryNode root;
 
+
+    public void insertRecu(Integer value) {
+        if (this.root == null) {
+            this.root = new BinaryNode(value);
+        } else {
+            recInsert(this.root, value);
+        }
+    }
+
+    public void recInsert(BinaryNode node, Integer value) {
+
+        BinaryNode current = node;
+        if (current != null) {
+            if (value > node.value) {
+                recInsert(current.right, value);
+            } else {
+                recInsert(current.left, value);
+            }
+        } else
+            current = new BinaryNode(value);
+
+    }
+
     public void insert(int value) {
         BinaryNode newNode = new BinaryNode(value);
 
