@@ -71,21 +71,36 @@ public class SingleNodeLinkedList {
 
     }
 
-    public void printNodes(SingleLinkedNode node) {
-
-        while (node != null && node.next != null) {
-            System.out.println("Node" +node.data);
-            node = node.next;
+    public int printNthNodeFromEnd(SingleLinkedNode head, int postion) {
+        if (head == null) return 0;
+        SingleLinkedNode first = head;
+        SingleLinkedNode second = head;
+        for (int i =0 ; i < postion; i ++) {
+            first = first.next;
         }
+
+        while (first != null) {
+            first = first.next;
+            second = second.next;
+        }
+
+        return second.data;
     }
 
-    public void printNodes() {
-        SingleLinkedNode node = this.head;
-        while (node != null && node.next != null) {
-//            System.out.println("Node" +node.data);
-            node = node.next;
+    public int printMiddleNodeData(SingleLinkedNode head) {
+
+        SingleLinkedNode slow = head;
+        SingleLinkedNode fast = head;
+        while (fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
         }
+
+        return slow.data;
+
     }
+
+
 
     public static void main(String[] args) {
         // Create a linked List
@@ -94,11 +109,13 @@ public class SingleNodeLinkedList {
         for (int l: i  ) {
             singleNodeLinkedList.addNode(l);
         }
-        singleNodeLinkedList.printNodes();
+//        singleNodeLinkedList.printNodes();
 
-        System.out.println(singleNodeLinkedList.head);
-        System.out.println(singleNodeLinkedList.compressListSingle(singleNodeLinkedList.head));
-        System.out.println(singleNodeLinkedList.compressList(singleNodeLinkedList.head));
+//        System.out.println(singleNodeLinkedList.head);
+//        System.out.println(singleNodeLinkedList.compressListSingle(singleNodeLinkedList.head));
+//        System.out.println(singleNodeLinkedList.compressList(singleNodeLinkedList.head));
+        System.out.println(singleNodeLinkedList.printMiddleNodeData(singleNodeLinkedList.head));
+        System.out.println(singleNodeLinkedList.printNthNodeFromEnd(singleNodeLinkedList.head, 3));
     }
 }
 
