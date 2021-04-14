@@ -8,16 +8,16 @@ public class BalancedParathensis {
 	    if (str.length() == 0) {
 	        return false;
         }
-        Stack<String> stackOfBrackets = new Stack<>();
+        Stack<Character> stackOfBrackets = new Stack<>();
         for (int i = 0; i < str.length(); i ++) {
             char toBeEval = str.charAt(i);
             if (toBeEval == '(' || toBeEval == '[' || toBeEval == '{') {
-                stackOfBrackets.add(str);
+                stackOfBrackets.add(toBeEval);
             } else {
                 if (stackOfBrackets.size() == 0) {
                     return false;
                 }
-                if (! str.equals(stackOfBrackets.peek())) {
+                if (! isMatching(stackOfBrackets.peek(), toBeEval)) {
                     return false;
                 } else {
                     stackOfBrackets.pop();
@@ -26,9 +26,13 @@ public class BalancedParathensis {
         }
         return true;
 	}
+
+	public boolean isMatching(Character a, Character b) {
+	    return ( (a =='(' && b == ')') || (a =='[' && b == ']') || (a =='{' && b == '}'));
+    }
 	
 	public static void main (String[] args) {
 		BalancedParathensis balancedParathensis = new BalancedParathensis();
-        System.out.println(balancedParathensis.isBalanced("((([])))"));
+        System.out.println(balancedParathensis.isBalanced("(({)}))"));
 	}
 }
