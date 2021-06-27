@@ -1,5 +1,7 @@
 package org.example.stack;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 public class BalancedParathensis {
@@ -30,9 +32,46 @@ public class BalancedParathensis {
 	public boolean isMatching(Character a, Character b) {
 	    return ( (a =='(' && b == ')') || (a =='[' && b == ']') || (a =='{' && b == '}'));
     }
+
+    public boolean isBalancedSec(String input) {
+        Map<Character, Character> bracketMap = new HashMap<>();
+        bracketMap.put('(', ')');
+        bracketMap.put('[', ']');
+        bracketMap.put('{', '}');
+
+        Stack<Character> s = new Stack<>();
+        /**
+         IP : "[)", }}
+         **/
+        for (int i = 0; i< input.length(); i ++) {
+            Character curr = input.charAt(i);   // [ ) }
+
+            if(bracketMap.containsKey(curr)) {  // true false
+                s.push(curr);                   // [
+            } else {
+                // Its a closing bracket
+
+                if (s.size() == 0)
+                    return false;
+
+                while (s.size() != 0) {             //true false
+                    Character popped = s.pop();     // [
+                    if (bracketMap.get(popped).equals(curr)) {  //fale
+                        break;
+                    } else  {
+                        return false;
+                    }
+
+                }
+
+            }
+        }
+
+        return s.size() == 0;
+    }
 	
 	public static void main (String[] args) {
 		BalancedParathensis balancedParathensis = new BalancedParathensis();
-        System.out.println(balancedParathensis.isBalanced("(({)}))"));
+        System.out.println(balancedParathensis.isBalancedSec("{}()"));
 	}
 }
