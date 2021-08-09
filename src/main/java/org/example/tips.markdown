@@ -20,7 +20,11 @@ i -> 3
 j -> 2, 1, 0
 ```
 
-# Map 
+# Table
+
+HashTable
+
+# Map
 
 Building a Map and operations on it
 
@@ -61,3 +65,25 @@ getLast()           | peekLast()
 * Stock Spanning Problems
 * Find the previous greatest number
 * Find the previous smallest number
+
+# Arrays
+## Circular Array
+
+Given the position of the first element, get the position of next available space
+```
+_, 1, 3, 4, 5
+
+size = 4 , cap = 5, front elementIndex = 1
+
+(1 + 4) % 5 => 0
+
+1, _, 4, 5, 6
+
+front elementIndex = 4
+
+(2+4) % 5 => 1
+```
+
+## K sub arrays looping pattern
+
+on a `n` sized sub-array we need to create `k` sized sub array. Total number of combinations is `n - k + 1`
