@@ -21,10 +21,11 @@ public class PairSum {
     public int getTheMaxSum(int[] x) {
         int maxSum = x[0], currSum = x[0];
         for(int i = 1; i < x.length; i++) {
-            currSum = currSum + x[i];
-            if (currSum < 0) {
-                currSum = 0;
-            }
+//            currSum = currSum + x[i];
+//            if (currSum < 0) {
+//                currSum = 0;
+//            }
+            currSum = Math.max(currSum + x[i], x[i]);
             maxSum = Math.max(currSum, maxSum);
         }
 
