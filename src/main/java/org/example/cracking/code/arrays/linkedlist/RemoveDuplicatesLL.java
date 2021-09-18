@@ -8,6 +8,23 @@ import java.util.Set;
 
 public class RemoveDuplicatesLL {
 
+    public SingleLinkedNode removeNodeFromMid(SingleLinkedNode head, int val) {
+
+        SingleLinkedNode curr = head;
+        SingleLinkedNode prev = null;
+
+        while (curr != null) {
+            if (curr.data == val) {
+                prev.next = curr.next;
+            } else
+                prev = curr;
+
+            curr = curr.next;
+        }
+
+        return head;
+    }
+
     public SingleLinkedNode removeDuplicates(SingleLinkedNode node) {
         SingleLinkedNode curr = node;
         SingleLinkedNode prev = curr;
@@ -22,8 +39,6 @@ public class RemoveDuplicatesLL {
                 prev = curr;
             }
             curr = curr.next;
-
-
         }
 
         return node;
@@ -35,6 +50,8 @@ public class RemoveDuplicatesLL {
         SingleLinkedList singleNodeLinkedList = new SingleLinkedList();
         System.out.println(singleNodeLinkedList.getNode());
         System.out.println(removeDuplicates.removeDuplicates(singleNodeLinkedList.getNode()));
+        System.out.println(removeDuplicates.removeNodeFromMid(singleNodeLinkedList.getNode(), 4));
+        System.out.println(removeDuplicates.removeNodeFromMid(singleNodeLinkedList.getNode(), 5));
     }
 
 }
