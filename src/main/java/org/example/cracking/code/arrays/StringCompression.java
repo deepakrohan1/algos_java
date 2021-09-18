@@ -5,6 +5,14 @@ package org.example.cracking.code.arrays;
  */
 public class StringCompression {
 
+
+//    geeksForgeeks
+
+    /**
+     * g, 1+1
+     *
+     */
+
     public String createCompressedString(String input) {
         StringBuilder sb = new StringBuilder();
 
