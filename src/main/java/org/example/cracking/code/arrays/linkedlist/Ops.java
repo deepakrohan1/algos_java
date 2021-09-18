@@ -41,13 +41,13 @@ public SingleLinkedNode deleteAtBeginning(SingleLinkedNode n) {
     public SingleLinkedNode deleteAtEnd(SingleLinkedNode n) {
 
     SingleLinkedNode curr = n;
-    SingleLinkedNode prev = n;
-    if (curr.next != null) {
-        prev = curr;
-        curr = curr.next;
 
+    while ( curr.next.next != null) {
+        curr = curr.next;
     }
-    prev.next = null;
+
+    curr.next = null;
+
     return n;
     }
 
