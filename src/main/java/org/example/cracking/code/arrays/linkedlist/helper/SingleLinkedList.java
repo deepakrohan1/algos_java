@@ -8,13 +8,13 @@ public class SingleLinkedList{
         SingleLinkedNode node = new SingleLinkedNode();
         node.data = 3;
         SingleLinkedNode node1 = new SingleLinkedNode();
-        node1.data = 4;
+        node1.data = 1;
         node.next = node1;
         SingleLinkedNode node2 = new SingleLinkedNode();
-        node2.data = 5;
+        node2.data = 1;
         node1.next = node2;
         SingleLinkedNode node3 = new SingleLinkedNode();
-        node3.data = 6;
+        node3.data = 1;
         node2.next = node3;
         return node;
     }
