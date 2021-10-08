@@ -2,6 +2,21 @@ package org.example.math;
 
 public class BasicSums {
 
+
+    public static int sumOfDigits(int n) {
+        if (n == 0) return 0;
+
+
+        return n % 10 + sumOfDigits(n / 10);
+    }
+
+    /**
+     *  Recursion to get the power of a number
+     * @param number
+     * @param exp
+     * @return
+     */
+
     public static int powOfNumber (int number, int exp) {
         if (exp <= 0) return 1;
 
@@ -57,12 +72,13 @@ public class BasicSums {
     }
 
     public static void main(String[] args) {
-        System.out.println(isSameFreq(113, 321));
-        System.out.println(isAverageFound(new int[] {}, 4d));
+//        System.out.println(isSameFreq(113, 321));
+//        System.out.println(isAverageFound(new int[] {}, 4d));
 //        System.out.println(maxSubArraySum(new int[] {100,200,300,400}, 2));
 //        System.out.println(maxSubArraySum(new int[] {1,4,2,10,23,3,1,0,20}, 4));
 //        System.out.println(maxSubArraySum(new int[] {3,-2,7,-4,1,-1,4,-2,1}, 2));
-        System.out.println(powOfNumber(3,3));
+//        System.out.println(powOfNumber(3,3));
+        System.out.println(sumOfDigits(2993));
 
     }
 }

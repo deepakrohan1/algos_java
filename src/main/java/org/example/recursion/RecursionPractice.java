@@ -49,12 +49,19 @@ public class RecursionPractice {
         return sum(n/10) + n % 10;
     }
 
+    static  int sumOfNumbers(int n) {
+        if (n <= 1) return n;
+
+        return n + sumOfNumbers(n-1);
+    }
+
     public static void main(String[] args) {
         RecursionPractice recursion = new RecursionPractice();
-        recursion.printNumberOneToN(5);
-        recursion.printNumberNToOne(5);
-        System.out.println(recursion.isPalindrome("wow"));
-        System.out.println(recursion.sum(03));
+//        recursion.printNumberOneToN(5);
+//        recursion.printNumberNToOne(5);
+//        System.out.println(recursion.isPalindrome("wow"));
+//        System.out.println(recursion.sum(03));
+        System.out.println(sumOfNumbers(4));
     }
 
 }
