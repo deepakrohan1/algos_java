@@ -18,7 +18,7 @@ public class HPartition {
             } while (arr[j] > pivot);
 
 
-gs            if (i == j) {
+           if (i == j) {
                 for (int i1 : arr) {
                     System.out.println(i1);
                 }
