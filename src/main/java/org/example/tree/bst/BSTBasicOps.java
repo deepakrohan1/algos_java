@@ -3,6 +3,29 @@ package org.example.tree.bst;
 public class BSTBasicOps {
 
     /**
+     * In order Traversal L - C- R
+     * @param args
+     */
+    public static void inOrderTraversal(TreeNode node) {
+
+        if (node == null) return;
+
+        inOrderTraversal(node.getLeft());
+        System.out.println(node.getVal());
+        inOrderTraversal(node.getRight());
+
+
+    }
+
+    public static void main(String[] args) {
+        TreeHelperClass tree = new TreeHelperClass();
+        inOrderTraversal(tree.createATreeNode());
+    }
+
+
+
+
+    /**
      * SEARCH BST
      *      if (n == null) return -1
      *      if (n.val == target) return n;
