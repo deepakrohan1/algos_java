@@ -19,7 +19,19 @@ public class BSTBasicOps {
 
     public static void main(String[] args) {
         TreeHelperClass tree = new TreeHelperClass();
-        inOrderTraversal(tree.createATreeNode());
+//        inOrderTraversal(tree.createATreeNode());
+        printLeafNodes(tree.createATreeNode());
+
+    }
+
+    public static void printLeafNodes(TreeNode node) {
+        if (node == null) return;
+        if (node.getLeft() == null && node.getRight() == null) {
+            System.out.println(node.getVal());
+        }
+
+        printLeafNodes(node.getLeft());
+        printLeafNodes(node.getRight());
     }
 
 
